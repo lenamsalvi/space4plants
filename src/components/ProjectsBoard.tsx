@@ -42,14 +42,19 @@ export default function ProjectsBoard({
   allProjects: Project[];
   activeTags: string[];
 }) {
-  const [postModal, setPostModal] = React.useState<null | {
+   const [postModal, setPostModal] = React.useState<null | {
     projectId: string;
     postId: string;
     title: string;
     date: string;
     content?: string;
     body?: Array<
-      { type: "p"; text: string } | { type: "img"; src: string; alt?: string }
+      | { type: "p"; text: string }
+      | { type: "title"; text: string }
+      | { type: "noindent"; text: string }
+      | { type: "caption"; text: string }
+      | { type: "ul"; items: string[] }
+      | { type: "img"; src: string; alt?: string }
     >;
   }>(null);
 
