@@ -4,7 +4,7 @@ export const projects = [
     title: "I Grew This",
     blurb:
       "All the things I've been growing lately",
-    cover: "/projects/igrewthis.jpg",
+    cover: "/projects/Igrewthis.jpg",
     posts: [
       {
         id: "post-1",
