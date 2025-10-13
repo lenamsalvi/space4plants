@@ -4,38 +4,38 @@ export const projects = [
     title: "I Grew This",
     blurb:
       "All the things I've been growing lately",
-    cover: "/projects/example.png",
+    cover: "/projects/igrewthis.jpg",
     posts: [
       {
         id: "post-1",
-        title: "My Styled Post",
+        title: "Coming Soon",
         date: "2025-08-02",
         body: [
-          { type: "title", text: "Post Title" },
+          { type: "title", text: "Coming soon" },
           {
             type: "p",
-            text: "This is an indented paragraph with explanatory text. It continues with more filler so you can see how it wraps naturally when it reaches the edge of the modal window.",
+            text: "Coming soon",
           },
           {
             type: "p",
-            text: "Here is another indented paragraph. It should also wrap correctly across multiple lines, maintaining indentation on the first line only.",
+            text: "Coming soon",
           },
           {
             type: "ul",
             items: [
-              "First bullet point with wrapping text",
-              "Second bullet point with extra details",
-              "Third bullet point for testing line breaks",
+              "Coming soon",
+              "Coming soon",
+              "Coming soon",
             ],
           },
           {
             type: "noindent",
-            text: "This is a flush-left paragraph without indentation, to contrast against the default.",
+            text: "Coming soon",
           },
           { type: "img", src: "/projects/example.png", alt: "Example image" },
           {
             type: "caption",
-            text: "This is a description of the example image, centered and italic.",
+            text: "Coming soon",
           },
         ],
       },
@@ -534,7 +534,7 @@ export const projects = [
       "/projects/image3.jpg",
       "/projects/image8.jpg",
     ],
-    overviewImage: "/projects/AutoFlora_AIMockUP.jpg",
+    overviewImage: "/projects/AutoFlora_AIMockUp.jpg",
     overviewText: `AutoFlora is an autonomous plant design app that uses a specialized algorithm to generate
              and curate arrangements for planters or landscapes. It blends horticultural data with design principles 
              to suggest combinations that are both practical and visually balanced. `,

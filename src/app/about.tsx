@@ -25,10 +25,10 @@ export default function AboutPage() {
                 Helena Salvi
               </h2>
               <p className="text-lg mb-10" style={{ color: "#334155" }}>
-                I&apos;m a mechanical engineer with a deep-rooted passion for plants and AgTech. My career has taken me from hands-on farming to designing AI-driven farm robotics and smart-growing consumer products. Along the way, I&apos;ve learned that the best growing systems are engineered to adapt, perform, and endure. Whether I&apos;m modeling CAD assemblies, building and testing prototypes, or getting my hands dirty in a greenhouse, I approach every project with the same philosophy: every challenge is a blueprint for the next solution. This site showcases projects by me, focused on making growing simpler, smarter, and more sustainable. When I&apos;m not designing or building, I&apos;m managing rental properties through my company Cypress Space, continuing to learn and expand my skills, or exploring new ways to merge my two passions. I hold AutoCAD certifications (ACU and ACP) and a B.S. in Mechanical Engineering from The George Washington University.
+                I&apos;m a mechanical engineer with a deep-rooted passion for plants and AgTech. My career has taken me from hands-on farming to designing AI-driven farm robotics and smart-growing consumer products. Along the way, I&apos;ve learned that the best growing systems are engineered to adapt, perform, and endure. Whether I&apos;m modeling CAD assemblies, building and testing prototypes, or getting my hands dirty in a greenhouse, my instinct is always to identify inefficiencies and create solutions. This site showcases projects by me, focused on making growing simpler, smarter, and more sustainable. When I&apos;m not designing or building, I&apos;m managing rental properties through my company Cypress Space, continuing to learn and expand my skills, or exploring new ways to merge my two passions. I hold AutoCAD certifications (ACU and ACP) and a B.S. in Mechanical Engineering from The George Washington University.
               </p>
               <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
-                &quot;Your quote here&quot;
+                &quot;Plants plants plant I like Plants&quot;
               </blockquote>
             </div>
           </div>
