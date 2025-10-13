@@ -1,103 +1,222 @@
-import Image from "next/image";
+// src/app/page.tsx
+"use client";
 
-export default function Home() {
+import React from "react";
+import { useView } from "./layout";
+import TopScroller from "@/components/TopScroller";
+import Projects from "./projects";
+import About from "./about";
+
+export default function HomePage() {
+  const { view } = useView();
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      {view === "home" && <HomeSection />}
+      {view === "projects" && <Projects />}
+      {view === "about" && <About />}
+    </>
+  );
+}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+function HomeSection() {
+  const { setView, setPendingProjectId } = useView();
+
+  return (
+    <div>
+      <main className="bg-white font-sans leading-relaxed" style={{ color: "#1e3a8a" }}>
+        {/* Hero */}
+        <section className="py-15 px-6 text-center border-b border-slate-200">
+          <p className="max-w-3xl text-2xl italic mx-auto" style={{ color: "#0066cc" }}>
+            Explore the making of each project. Every detail is here, in my
+            voice, so you can see both the work itself and the skill behind it.
+          </p>
+        </section>
+
+        {/* Magazine-style editorial flow */}
+        <section className="max-w-5xl mx-auto px-6 py-15 space-y-16">
+          <article className="relative">
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+              {/* Title - mobile: top, desktop: hidden here */}
+              <h2 className="text-4xl font-bold order-1 md:hidden col-span-full" style={{ color: "#1e3a8a" }}>
+                GrowGrid
+              </h2>
+
+              {/* Image on the left desktop, middle on mobile*/}
+              <div className="w-full bg-slate-100 rounded-lg overflow-hidden order-2 md:order-1">
+                <img
+                  src="/projects/GrowGrid_Render2.jpg" // <--image path
+                  alt="Plant Arrangement Generator screenshot"
+                  className="w-full h-auto"
+                />
+              </div>
+
+              {/* Text on the right */}
+              <div className="order-3 md:order-2">
+                <h2 className="text-4xl font-bold mb-6 hidden md:block" style={{ color: "#1e3a8a" }}>
+                  GrowGrid
+                </h2>
+                <p className="text-lg mb-10" style={{ color: "#334155" }}>
+                  GrowGrid is a fully modular growing framework where every
+                  piece functions independently yet connects seamlessly into
+                  the whole. By prioritizing accessibility and adaptability,
+                  GrowGrid makes long-term cultivation cleaner, simpler, and
+                  more reliable. Its open architecture also supports future
+                  expansion - sensors, lighting, or new pod designs can be
+                  integrated without redesigning the core. The result is an
+                  engineered system that grows with you while keeping plants,
+                  not upkeep, at the center.
+                </p>
+                <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
+                  "A grow system that adapts, performs, and endures."
+                </blockquote>
+                <button
+                  onClick={() => {
+                    setPendingProjectId("hydro-chamber");
+                    setView("projects");
+                  }}
+                  style={{
+                    marginTop: "1.5rem",
+                    display: "inline-block",
+                    padding: "0.5rem 1.25rem",
+                    background: "#008cf7",
+                    color: "white",
+                    fontSize: "0.875rem",
+                    borderRadius: "0.25rem",
+                    border: "none",
+                    transition: "background 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.background = "#0077d4";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.background = "#008cf7";
+                  }}
+                >
+                  Read More →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article className="relative">
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              {/* Title - mobile: top, desktop: hidden here */}
+              <h2 className="text-4xl font-bold mb-6 order-1 md:hidden col-span-full" style={{ color: "#1e3a8a" }}>
+                AutoFlora
+              </h2>
+
+              {/* Text on the left */}
+              <div className="order-3 md:order-1">
+                <h2 className="text-4xl font-bold mb-6 hidden md:block" style={{ color: "#1e3a8a" }}>
+                  AutoFlora
+                </h2>
+                <p className="text-lg mb-10" style={{ color: "#334155" }}>
+                  AutoFlora is an autonomous plant design app that uses a
+                  specialized algorithm to generate and curate arrangements for
+                  planters or landscapes. It blends horticultural data with
+                  design principles to suggest combinations that are both
+                  practical and visually balanced.
+                </p>
+                <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
+                  "Generative curation for living landscapes."
+                </blockquote>
+                <button
+                  onClick={() => {
+                    setPendingProjectId("AutoFlora");
+                    setView("projects");
+                  }}
+                  style={{
+                    marginTop: "1.5rem",
+                    display: "inline-block",
+                    padding: "0.5rem 1.25rem",
+                    background: "#008cf7",
+                    color: "white",
+                    fontSize: "0.875rem",
+                    borderRadius: "0.25rem",
+                    border: "none",
+                    transition: "background 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.background = "#0077d4";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.background = "#008cf7";
+                  }}
+                >
+                  Read More →
+                </button>
+              </div>
+
+              {/* Image on the right */}
+              <div className="order-2 w-full bg-slate-100 rounded-lg overflow-hidden">
+                <img
+                  src="/projects/AutoFlora_AIMockUp.jpg" // <-- your image path here
+                  alt="Plant Arrangement Generator screenshot"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </article>
+
+          <article className="relative">
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              {/* Title - mobile: top, desktop: hidden here */}
+              <h2 className="text-4xl font-bold mb-6 order-1 md:hidden col-span-full" style={{ color: "#1e3a8a" }}>
+                Website
+              </h2>
+
+              {/* Image on the left */}
+              <div className="w-full bg-slate-100 rounded-lg overflow-hidden order-2 md:order-1">
+                <img
+                  src="/projects/viewports.jpg" // <-- your image path here
+                  alt="Plant Arrangement Generator screenshot"
+                  className="w-full h-auto"
+                />
+              </div>
+
+              {/* Text on the right */}
+              <div className="order-3 md:order-2">
+                <h2 className="text-4xl font-bold mb-6 hidden md:block" style={{ color: "#1e3a8a" }}>
+                  Website
+                </h2>
+                <p className="text-lg mb-10" style={{ color: "#334155" }}>
+                  This project exemplifies my exploratory and bold nature - I am
+                  not afraid of what I do not know, and I welcome the challenge.
+                </p>
+                <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
+                  "A space for designing... a space for growth... a space for plants."
+                </blockquote>
+                <button
+                  onClick={() => {
+                    setPendingProjectId("Building My Website");
+                    setView("projects");
+                  }}
+                  style={{
+                    marginTop: "1.5rem",
+                    display: "inline-block",
+                    padding: "0.5rem 1.25rem",
+                    background: "#008cf7",
+                    color: "white",
+                    fontSize: "0.875rem",
+                    borderRadius: "0.25rem",
+                    border: "none",
+                    transition: "background 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.background = "#0077d4";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.background = "#008cf7";
+                  }}
+                >
+                  Read More →
+                </button>
+              </div>
+            </div>
+          </article>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }

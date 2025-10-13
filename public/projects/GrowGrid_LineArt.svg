@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" fill="none" stroke="#008cf7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Cute arched trellis -->
+  <path d="M 120 480 L 120 220 Q 120 120, 200 120 Q 280 120, 280 220 L 280 480" stroke-width="3" />
+
+  <!-- Horizontal support lines (fewer, cleaner) -->
+  <line x1="120" y1="180" x2="280" y2="180" />
+  <line x1="120" y1="250" x2="280" y2="250" />
+  <line x1="120" y1="320" x2="280" y2="320" />
+  <line x1="120" y1="390" x2="280" y2="390" />
+  <line x1="120" y1="460" x2="280" y2="460" />
+
+  <!-- Top platform with rounded edges -->
+  <rect x="95" y="480" width="210" height="30" rx="8" />
+
+  <!-- Cute little pot holders -->
+  <circle cx="130" cy="495" r="5" fill="#008cf7" opacity="0.3" />
+  <circle cx="200" cy="495" r="5" fill="#008cf7" opacity="0.3" />
+  <circle cx="270" cy="495" r="5" fill="#008cf7" opacity="0.3" />
+
+  <!-- Reservoir base (rounded and friendly) -->
+  <rect x="80" y="510" width="240" height="50" rx="12" />
+
+  <!-- Little water level indicator -->
+  <rect x="100" y="530" width="200" height="8" rx="4" opacity="0.4" />
+
+  <!-- Cute climbing plants -->
+  <!-- Left plant -->
+  <path d="M 140 460 Q 135 440, 135 420 Q 135 400, 140 380" stroke-width="2" />
+  <ellipse cx="132" cy="410" rx="8" ry="12" transform="rotate(-20 132 410)" />
+  <ellipse cx="145" cy="425" rx="7" ry="11" transform="rotate(15 145 425)" />
+  <ellipse cx="138" cy="395" rx="6" ry="10" transform="rotate(-25 138 395)" />
+
+  <!-- Center plant -->
+  <path d="M 200 460 Q 195 420, 198 380 Q 200 340, 195 300" stroke-width="2" />
+  <ellipse cx="188" cy="360" rx="9" ry="13" transform="rotate(-30 188 360)" />
+  <ellipse cx="205" cy="370" rx="8" ry="12" transform="rotate(25 205 370)" />
+  <ellipse cx="190" cy="320" rx="7" ry="11" transform="rotate(-20 190 320)" />
+  <ellipse cx="208" cy="335" rx="8" ry="12" transform="rotate(20 208 335)" />
+
+  <!-- Right plant -->
+  <path d="M 260 460 Q 265 430, 260 400 Q 258 370, 265 340" stroke-width="2" />
+  <ellipse cx="268" cy="380" rx="8" ry="12" transform="rotate(25 268 380)" />
+  <ellipse cx="255" cy="395" rx="7" ry="11" transform="rotate(-15 255 395)" />
+  <ellipse cx="270" cy="355" rx="6" ry="10" transform="rotate(30 270 355)" />
+
+  <!-- Tiny decorative roots at bottom -->
+  <path d="M 200 510 Q 205 515, 200 520" stroke-width="1.5" opacity="0.5" />
+  <path d="M 190 510 Q 185 515, 190 520" stroke-width="1.5" opacity="0.5" />
+  <path d="M 210 510 Q 215 515, 210 520" stroke-width="1.5" opacity="0.5" />
+
+  <!-- Little sparkles/highlights for cuteness -->
+  <circle cx="150" cy="200" r="2" fill="#008cf7" />
+  <circle cx="250" cy="240" r="2" fill="#008cf7" />
+  <circle cx="180" cy="280" r="1.5" fill="#008cf7" />
+  <path d="M 230 180 L 232 180 M 231 179 L 231 181" stroke-width="1.5" />
+</svg>
