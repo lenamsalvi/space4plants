@@ -4,14 +4,19 @@ import Modal from "@/components/Modal";
 import PostContent from "@/components/PostContent";
 import { useView } from "@/app/layout";
 
-type Post = {
+export type Post = {
   id: string;
   title: string;
   date: string;
-  excerpt: string;
+  excerpt?: string;
   content?: string;
   body?: Array<
-    { type: "p"; text: string } | { type: "img"; src: string; alt?: string }
+    | { type: "p"; text: string }
+    | { type: "title"; text: string }
+    | { type: "noindent"; text: string }
+    | { type: "caption"; text: string }
+    | { type: "ul"; items: string[] }
+    | { type: "img"; src: string; alt?: string }
   >;
   tags?: string[];
 };

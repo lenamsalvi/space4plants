@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import ProjectsBoard, { Project } from "@/components/ProjectsBoard";
+import ProjectsBoard, { Project, type Post } from "@/components/ProjectsBoard";
 import { projects } from "@/lib/projects";
 
 export default function Projects() {
@@ -15,7 +15,7 @@ export default function Projects() {
       Array.from(
         new Set(
           projects.flatMap((proj) =>
-            proj.posts.flatMap((post: any) => post.tags ?? [])
+            proj.posts.flatMap((post) => ('tags' in post ? post.tags ?? []: []))
           )
         )
       ),
@@ -45,8 +45,8 @@ export default function Projects() {
       const byTags = projects
         .map((p) => ({
           ...p,
-          posts: p.posts.filter((post: any) =>
-            (post.tags ?? []).some((tag: string) => activeTags.includes(tag))
+          posts: p.posts.filter((post) =>
+            ('tags' in post ? post.tags ?? [] : []).some((tag: string) => activeTags.includes(tag))
           ),
         }))
         .filter((p) => p.posts.length > 0);
