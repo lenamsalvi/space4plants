@@ -26,8 +26,8 @@ export default function Projects() {
   const allPhotos = React.useMemo(
     () =>
       projects.flatMap((proj) =>
-        (proj as any).gallery
-          ? (proj as any).gallery.map((src: string) => ({
+        (proj as { gallery?: string[] }).gallery
+          ? (proj as { gallery: string[] }).gallery.map((src: string) => ({
               src,
               projectId: proj.id,
             }))

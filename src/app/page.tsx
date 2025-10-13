@@ -3,7 +3,6 @@
 
 import React from "react";
 import { useView } from "./layout";
-import TopScroller from "@/components/TopScroller";
 import Projects from "./projects";
 import About from "./about";
 
@@ -68,7 +67,7 @@ function HomeSection() {
                   not upkeep, at the center.
                 </p>
                 <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
-                  "A grow system that adapts, performs, and endures."
+                  &quot;A grow system that adapts, performs, and endures.&quot;
                 </blockquote>
                 <button
                   onClick={() => {
@@ -119,7 +118,7 @@ function HomeSection() {
                   practical and visually balanced.
                 </p>
                 <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
-                  "Generative curation for living landscapes."
+                  &quot;Generative curation for living landscapes.&quot;
                 </blockquote>
                 <button
                   onClick={() => {
@@ -185,7 +184,7 @@ function HomeSection() {
                   not afraid of what I do not know, and I welcome the challenge.
                 </p>
                 <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
-                  "A space for designing... a space for growth... a space for plants."
+                  &quot;A space for designing... a space for growth... a space for plants.&quot;
                 </blockquote>
                 <button
                   onClick={() => {

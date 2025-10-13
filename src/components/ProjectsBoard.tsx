@@ -97,9 +97,9 @@ export default function ProjectsBoard({
           );
 
           // collect all tags from posts if present
-          const postTags = Array.from(
-            new Set(card.posts.flatMap((p: any) => p.tags ?? []))
-          );
+          // const postTags = Array.from(
+          //   new Set(card.posts.flatMap((p) => p.tags ?? []))
+          // );
 
           return (
             <div
