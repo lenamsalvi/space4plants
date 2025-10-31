@@ -271,7 +271,7 @@ export const projects = [
           { type: "title", text: "Current Status:" },
            {
             type: "audio",
-            src: "/projects/TEST_REC.wav",
+            src: "/projects/TEST_REC.WAV",
             caption: "First Test Recording"
           },
           {
@@ -669,7 +669,7 @@ export const projects = [
           },
           {
             type: "img",
-            src: "/projects/GrowGrid_prototype3.jpg",
+            src: "/projects/GrowGrid_Prototype3.jpg",
             alt: "frame and water tub prototype with hand holding gridpanel",
           },
            {
