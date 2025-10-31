@@ -38,14 +38,14 @@ function HomeSection() {
             <div className="grid md:grid-cols-2 gap-8 items-start">
               {/* Title - mobile: top, desktop: hidden here */}
               <h2 className="text-4xl font-bold order-1 md:hidden col-span-full" style={{ color: "#1e3a8a" }}>
-                GrowGrid
+                Wire
               </h2>
 
               {/* Image on the left desktop, middle on mobile*/}
               <div className="w-full bg-slate-100 rounded-lg overflow-hidden order-2 md:order-1">
                 <img
-                  src="/projects/GrowGrid_Render2.jpg" // <--image path
-                  alt="Plant Arrangement Generator screenshot"
+                  src="/projects/imwearingawire.jpg" // <--image path
+                  alt="audio journaling device"
                   className="w-full h-auto"
                 />
               </div>
@@ -53,25 +53,17 @@ function HomeSection() {
               {/* Text on the right */}
               <div className="order-3 md:order-2">
                 <h2 className="text-4xl font-bold mb-6 hidden md:block" style={{ color: "#1e3a8a" }}>
-                  GrowGrid
+                  Wire
                 </h2>
                 <p className="text-lg mb-10" style={{ color: "#334155" }}>
-                  GrowGrid is a fully modular growing framework where every
-                  piece functions independently yet connects seamlessly into
-                  the whole. By prioritizing accessibility and adaptability,
-                  GrowGrid makes long-term cultivation cleaner, simpler, and
-                  more reliable. Its open architecture also supports future
-                  expansion - sensors, lighting, or new pod designs can be
-                  integrated without redesigning the core. The result is an
-                  engineered system that grows with you while keeping plants,
-                  not upkeep, at the center.
+                  A self-reflection audio recording device built on ESP32 with bluetooth connectivity. Record voice memos and save them to an SD card, or stream the ambient sounds of a totally empty room via Bluetooth headphones from 50 feet away. The possibilities are endless when you're Wearing a Wire.
                 </p>
                 <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
-                  &quot;A grow system that adapts, performs, and endures.&quot;
+                  &quot;Don't implicate yourself, I'm wearing a wire.&quot;
                 </blockquote>
                 <button
                   onClick={() => {
-                    setPendingProjectId("hydro-chamber");
+                    setPendingProjectId("imwearingawire");
                     setView("projects");
                   }}
                   style={{

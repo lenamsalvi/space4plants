@@ -5,6 +5,7 @@ export const projects = [
     blurb:
       "All the things I've been growing lately",
     cover: "/projects/Igrewthis.jpg",
+    overviewText: `<< Some of my tomato harvest this year!!`,
     posts: [
       {
         id: "post-1",
@@ -59,7 +60,7 @@ export const projects = [
       {
         id: "readme",
         title: "README.md",
-        date: "2025-08-02",
+        date: "2025-10-30",
         tags: [
           "Bluetooth",
           "ESP32",
@@ -78,6 +79,28 @@ export const projects = [
               "Learn ESP32 I2S audio processing and SD card storage",
               "Create a functional breadboard prototype before integration into physical device",
             ],
+          },
+          {
+            type: "noindent",
+            text: "Audio Format: WAV (uncompressed, 16-bit, configurable sample rate)",
+          },
+          { type: "title", text: "Current Status:" },
+           {
+            type: "audio",
+            src: "/projects/TEST_REC.WAV",
+            caption: "First Test Recording"
+          },
+          {
+            type: "noindent",
+            text: "Last Updated: 2025-10-28",
+          },
+          {
+            type: "noindent",
+            text: "Phase: 3 - Core Functionality (Audio Quality Debugging)",
+          },
+          {
+            type: "noindent",
+            text: "Current Task: Diagnosing I2S audio quality issues (choppy playback, speed inconsistency)",
           },
           { type: "title", text: "Hardware Components:" },
            {
@@ -264,28 +287,7 @@ export const projects = [
               "HFP/HSP (Hands-Free Profile/Headset Profile) for Bluetooth microphone input",
             ],
           },
-          {
-            type: "noindent",
-            text: "Audio Format: WAV (uncompressed, 16-bit, configurable sample rate)",
-          },
-          { type: "title", text: "Current Status:" },
-           {
-            type: "audio",
-            src: "/projects/TEST_REC.WAV",
-            caption: "First Test Recording"
-          },
-          {
-            type: "noindent",
-            text: "Last Updated: 2025-10-28",
-          },
-          {
-            type: "noindent",
-            text: "Phase: 3 - Core Functionality (Audio Quality Debugging)",
-          },
-          {
-            type: "noindent",
-            text: "Current Task: Diagnosing I2S audio quality issues (choppy playback, speed inconsistency)",
-          },
+          
           {
             type: "noindent",
             text: "Hardware Status:",
