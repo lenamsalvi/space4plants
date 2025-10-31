@@ -56,10 +56,10 @@ function HomeSection() {
                   Wire
                 </h2>
                 <p className="text-lg mb-10" style={{ color: "#334155" }}>
-                  A self-reflection audio recording device built on ESP32 with bluetooth connectivity. Record voice memos and save them to an SD card, or stream the ambient sounds of a totally empty room via Bluetooth headphones from 50 feet away. The possibilities are endless when you're Wearing a Wire.
+                  A self-reflection audio recording device built on ESP32 with bluetooth connectivity. Record voice memos and save them to an SD card, or stream the ambient sounds of a totally empty room via Bluetooth headphones from 50 feet away. The possibilities are endless when you&apos;re Wearing a Wire.
                 </p>
                 <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
-                  &quot;Don't implicate yourself, I'm wearing a wire.&quot;
+                  &quot;Don&apos;t implicate yourself, I&apos;m wearing a wire.&quot;
                 </blockquote>
                 <button
                   onClick={() => {
