@@ -42,6 +42,499 @@ export const projects = [
     ],
   },
 
+//...................................................imwearingawire
+  {
+    id: "imwearingawire",
+    title: "I'm Wearing a Wire",
+    blurb:
+      "Blutooth Enabled Audio Journaling Device",
+    cover: "/projects/wireprototype1.jpg",
+    coverPosition: "center",
+    Gallery: [
+      "/projects/wireprototype1.jpg",
+    ],
+    overviewImage: "/projects/wireprototype1.jpg",
+    overviewText: `A self-reflection audio recording device built on ESP32. Records voice memos to SD card and plays them back via Bluetooth headphones. Explores Bluetooth audio protocols (A2DP and HFP) in depth.`,
+    posts: [
+      {
+        id: "readme",
+        title: "README.md",
+        date: "2025-08-02",
+        tags: [
+          "Bluetooth",
+          "ESP32",
+          "Prototyping",
+          "Hardware Development",
+          "Embedded Software",
+          "Audio Protocol (A2DP & HFP)",
+        ],
+        body: [
+          { type: "title", text: "Project Goals:" },
+          {
+            type: "ul",
+            items: [
+              "Deep exploration of Bluetooth Classic audio protocols",
+              "Build a portable voice recording device for car-based self-reflection",
+              "Learn ESP32 I2S audio processing and SD card storage",
+              "Create a functional breadboard prototype before integration into physical device",
+            ],
+          },
+          { type: "title", text: "Hardware Components:" },
+           {
+            type: "noindent",
+            text: "Core Components:",
+          },
+          {
+            type: "ul",
+            items: [
+              "MCU: Inland ESP32 Development Board (ESP32-WROOM, Bluetooth Classic support)",
+              "Microphone: ICS-43434 I2S MEMS Microphone (primary)",
+              "Microphone (backup): MAX4466 Electret Microphone Breakout",
+              "Storage: MicroSD Card Breakout Board (FAT32 formatted with MBR)",
+              "Display: Small OLED Screen (I2C)",
+              "Display (optional): E-ink screen (larger, for final build consideration)",
+              "Input: 3 buttons with pull-down resistors on breadboard",
+              "Power: USB (laptop-powered during development)",
+            ],
+          },
+            {
+            type: "noindent",
+            text: "Future Components (Not Yet Acquired):",
+          },
+          {
+            type: "ul",
+            items: [
+              "LiPo battery (700-1500mAh range)",
+              "Battery charging module with USB-C",
+              "Enclosure (design TBD)",
+            ],
+          },
+          { type: "title", text: "Pin Mapping:" },
+           {
+            type: "noindent",
+            text: "ICS-43434 I2S Microphone",
+          },
+          {
+            type: "ul",
+            items: [
+              "WS (Word Select): GPIO 25",
+              "SCK (Clock): GPIO 26",
+              "SD (Data): GPIO 27",
+              "VCC: 3.3V",
+              "GND: GND",
+            ],
+          },
+          {
+            type: "noindent",
+            text: "SD Card (SPI)",
+          },
+          {
+            type: "ul",
+            items: [
+              "MISO: GPIO 19",
+              "MOSI: GPIO 23",
+              "CLK: GPIO 18",
+              "CS: GPIO 5",
+              "VCC: 3.3V",
+              "GND: GND",
+            ],
+          },
+          {
+            type: "noindent",
+            text: "OLED Display (I2C)",
+          },
+          {
+            type: "ul",
+            items: [
+              "SDA: GPIO 21",
+              "SCL: GPIO 22",
+              "VCC: 3.3V",
+              "GND: GND",
+              "Address: 0 x 3D",
+            ],
+          },
+           {
+            type: "noindent",
+            text: "Buttons",
+          },
+          {
+            type: "ul",
+            items: [
+              "Button Left (Previous Screen): GPIO 32",
+              "Button Middle (Record/Select): GPIO 33",
+              "Button Right (Next Screen): GPIO 34",
+            ],
+          },
+          { type: "title", text: "Development Roadmap:" },
+           {
+            type: "noindent",
+            text: "Phase 1: Environment Setup",
+          },
+          {
+            type: "ul",
+            items: [
+              "[x] Assemble hardware components",
+              "[x] Format SD card (FAT32, MBR)",
+              "[x] Wire buttons with pull-down resistors",
+              "[x] Install ESP-IDF development environment (Windows)",
+              "[x] Test basic ESP32 connectivity and upload test sketch",
+            ],
+          },
+          {
+            type: "noindent",
+            text: "Phase 2: Component Testing",
+          },
+          {
+            type: "ul",
+            items: [
+              "[x] Wire and test OLED display (I2C communication)",
+              "[x] Wire and test SD card (FAT32 read/write operations)",
+              "[x] Wire and test ICS-43434 microphone (I2S audio capture)",
+              "[x] Test button inputs (debouncing and event handling)",
+            ],
+          },
+           {
+            type: "noindent",
+            text: "Phase 3: Core Functionality",
+          },
+          {
+            type: "ul",
+            items: [
+              "[x] Implement WAV file recording (I2S mic → SD card)",
+              "[ ] Debug and optimize audio quality (sample rate, I2S configuration)",
+              "[ ] Implement file management (list, select, delete recordings)",
+              "[ ] Add persistent filename counter across reboots",
+            ],
+          },
+           {
+            type: "noindent",
+            text: "Phase 4: Bluetooth Audio Deep Dive",
+          },
+          {
+            type: "ul",
+            items: [
+              "[ ] Implement A2DP Bluetooth playback (SD card → headphones)",
+              "[ ] Implement HFP/HSP Bluetooth mic input (headphone mic → ESP32)",
+              "[ ] Handle Bluetooth pairing and connection management",
+              "[ ] Test both profiles simultaneously",
+            ],
+          },
+          {
+            type: "noindent",
+            text: "Phase 5: Integration",
+          },
+          {
+            type: "ul",
+            items: [
+              "[ ] Build UI state machine for record/playback modes",
+              "[ ] Implement OLED menu system with button controls",
+              "[ ] Add audio level indicators and recording status",
+              "[ ] Test complete workflow end-to-end",
+            ],
+          },
+          {
+            type: "noindent",
+            text: "Phase 6: Power and Enclosure (Future)",
+          },
+          {
+            type: "ul",
+            items: [
+              "[ ] Add battery and charging circuit",
+              "[ ] Test power consumption and battery life",
+              "[ ] Design and build enclosure",
+              "[ ] Consider E-ink display swap for battery efficiency",
+            ],
+          },
+          { type: "title", text: "Technical Stack:" },
+          {
+            type: "noindent",
+            text: "Development Framework: ESP-IDF (switching from Arduino for better Bluetooth control)",
+          },
+          {
+            type: "noindent",
+            text: "Key Protocols:",
+          },
+          {
+            type: "ul",
+            items: [
+              "I2S (Inter-IC Sound) for digital microphone interface",
+              "SPI for SD card communication",
+              "I2C for OLED display",
+              "A2DP (Advanced Audio Distribution Profile) for Bluetooth audio playback",
+              "HFP/HSP (Hands-Free Profile/Headset Profile) for Bluetooth microphone input",
+            ],
+          },
+          {
+            type: "noindent",
+            text: "Audio Format: WAV (uncompressed, 16-bit, configurable sample rate)",
+          },
+          { type: "title", text: "Current Status:" },
+           {
+            type: "audio",
+            src: "/projects/TEST_REC.wav",
+            caption: "First Test Recording"
+          },
+          {
+            type: "noindent",
+            text: "Last Updated: 2025-10-28",
+          },
+          {
+            type: "noindent",
+            text: "Phase: 3 - Core Functionality (Audio Quality Debugging)",
+          },
+          {
+            type: "noindent",
+            text: "Current Task: Diagnosing I2S audio quality issues (choppy playback, speed inconsistency)",
+          },
+          {
+            type: "noindent",
+            text: "Hardware Status:",
+          },
+          {
+            type: "ul",
+            items: [
+              "All components wired and functional on breadboard",
+              "I2S microphone capturing audio (quality issues under investigation)",
+              "SD card recording WAV files successfully",
+              "OLED display showing 6-screen navigation UI",
+              "Button-based recording control working",
+            ],
+          },
+          { type: "title", text: "Development Notes:" },
+          {
+            type: "ul",
+            items: [
+              "Using breadboard prototype throughout development",
+              "USB-powered from laptop until battery integration",
+              "ICS-43434 chosen for superior I2S quality over analog MAX4466",
+              "ESP-IDF required for full HFP Bluetooth stack (Arduino libraries insufficient)",
+              "Will test individual components before integration",
+            ],
+          },
+          {
+            type: "noindent",
+            text: "Phase 1 Completed: 2025-10-29",
+          },
+          {
+            type: "ul",
+            items: [
+              "ESP-IDF v5.5.1 installed to `C:\esp\` (custom path to avoid spaces in Windows username)",
+              "CP2102 USB-to-UART drivers required manual installation from Silicon Labs",
+              "ESP32 board confirmed working on COM3",
+              "Project location: `C:\esp\projects\imwearingawire\` (avoiding user folder path issues)",
+              "Blink test successful - toolchain verified working",
+            ],
+          },
+          {
+            type: "noindent",
+            text: "Phase 2 Completed: 2025-10-30",
+          },
+          {
+            type: "ul",
+            items: [
+              "OLED display (SSD1306) initialized via I2C at 400kHz on GPIO 21/22",
+              "SD card mounted via SPI at 4MHz (initially 400kHz for breadboard stability)",
+              "Button debouncing implemented (200ms) with pull-down resistors",
+              "6-screen navigation UI implemented (Title, SD Status, Record, Playback, Settings, Graphics)",
+              "I2S microphone initialized on GPIO 25/26/27 in Philips standard mode",
+              "Full WAV recording pipeline: I2S capture → fwrite to SD → WAV header generation",
+              "Automatic filename generation (memo_001.wav, memo_002.wav, etc.)",
+              "Power management: I2S disabled when not recording",
+              "Error handling added for SD card writes and WAV header generation",
+            ],
+          },
+           {
+            type: "noindent",
+            text: "Code Quality Improvements (Post-Phase2 Review)",
+          },
+          {
+            type: "ul",
+            items: [
+              "Fixed OLED display bug: removed text overlapping audio level bar",
+              "Fixed SD card space allocation: removed hardcoded 16KB cluster size causing mount issues",
+              "Added comprehensive error checking: all fwrite operations now verify bytes written",
+              "Increased SD SPI speed: 400kHz → 4MHz for better write performance",
+              "Implemented power management: I2S channel now disabled between recordings",
+              "Enhanced error reporting: SD operations update on-screen status messages",
+            ]
+          },
+          { type: "title", text: "Technical Implementation Details:" },
+          {
+            type: "noindent",
+            text: "Audio Recording Pipeline",
+          },
+          {
+            type: "ul",
+            items: [
+              "I2S Configuration: 16kHz sample rate, 16-bit mono, Philips standard mode",
+              "Capture Loop: 50ms polling, 1024-sample buffer (64ms at 16kHz)",
+              "WAV Format: Standard PCM WAV with 44-byte header",
+              "Storage: Direct fwrite to SD card with error checking",
+              "Power: I2S channel disabled between recordings",
+            ]
+          },
+          {
+            type: "noindent",
+            text: "Code Architecture",
+          },
+          {
+            type: "ul",
+            items: [
+              "State Machine: 6-screen UI with button-driven navigation",
+              "Recording State: Boolean flags with file handle management",
+              "Error Handling: All SD operations check return values and update status display",
+              "Concurrency: Single-threaded main loop, no RTOS tasks yet",
+            ]
+          },
+          {
+            type: "noindent",
+            text: "Performance Characteristics",
+          },
+          {
+            type: "ul",
+            items: [
+              "SD Write Speed: 4MHz SPI (32 KB/s theoretical, actual varies)",
+              "Audio Data Rate: 16kHz × 16-bit × 1 channel = 32 KB/s",
+              "Critical timing: Write speed must match or exceed audio data rate to avoid dropouts",
+            ]
+          },
+        ],
+      },
+    ],
+  },
+//...............................................................AutoFlora
+
+  {
+    id: "AutoFlora",
+    title: "AutoFlora",
+    blurb: "Generative curation for living landscapes.",
+    cover: "/projects/image2.jpg",
+    coverPosition: "center top",
+    gallery: [
+      "/projects/image1.jpg",
+      "/projects/image2.jpg",
+      "/projects/image3.jpg",
+      "/projects/image8.jpg",
+    ],
+    overviewImage: "/projects/AutoFlora_AIMockUp.jpg",
+    overviewText: `AutoFlora is an autonomous plant design app that uses a specialized algorithm to generate
+             and curate arrangements for planters or landscapes. It blends horticultural data with design principles 
+             to suggest combinations that are both practical and visually balanced. `,
+
+    posts: [
+      {
+        id: "MVP",
+        title: "MVP",
+        date: "2025-09-01",
+        tags: [
+          "Prototyping",
+          "Python",
+          "Google Cloud Console",
+          "Custom Search Engine",
+          "AI",
+        ],
+        excerpt: " ",
+        body: [
+          {
+            type: "p",
+            text: `I am not a programmer, but I am an Engineer, and with AI I coded a local desktop program in python that assembles aesthetically pleasing arrangements of plants. Because of the accessibility of LLM’s and AI Assistants, generating python scripts for specific functions was the easiest part of this project - the biggest hurdle in this project was data collection. As demonstrated by this prototype, a mobile application with a cleaner user interface and additional features is viable. This is what I did:`
+          },
+          {
+            type: "p",
+            text: `First, I created a substantially large list of ~8,000 unique plant names, saved as a .csv by compiling availability (inventory) lists from multiple wholesale nurseries in Pennsylvania. In this process I also tagged plants with the additional data of which seasons they typically become available for purchase (spring, summer, fall, or a combination of seasons) - I used this as a quick approximation for “planting season”, but this data would require expert validation. `
+          },
+          {
+            type: "img",
+            src: "/projects/image1.jpg",
+            alt: "images downloaded to desktop file using google console",
+          },
+          {
+            type: "caption",
+            text: "Image 1. Images downloaded into desktop file",
+          },
+          {
+            type: "p",
+            text: `Then I used Google Cloud Console and Custom Search Engine (CSE), along with a python script to search and download the first three images from Google Images associated with each plant name, saved the .jpg files in a folder, and labeled them with the plant name and a clarifier “_1, 2, or 3”,  to prevent duplicate file names. CSE is accessed through a Custom Search API key provided by Google Console, allowing me to query the search engine with a plant name and return an image URL - each query was tracked in the console and had an associated cost, as well as a maximum number of paid queries per day. Running the program took approximately 4 sessions (1,000 per day), and about $20 total cost. The result was a substantial, yet incomplete, complement of images due to errors that occurred during the image downloading process - 0% of the queries failed to return a URL, but approximately ¼ of the queries that were billed linked to images that could not be  downloaded. Essentially, any image with a source file ending in .webx was not able to be downloaded, probably by design of the image owner. I decided there were a sufficient number of photos to proceed with an MVP- although further work is needed in this process. `
+          },
+          {
+            type: "p",
+            text: `Next, I used another python script to analyze each image file for its most dominant colors. The script was iterated multiple times in order to focus primarily on the flower colors and other non-green foliage that otherwise muddied the data - I ultimately landed on a method of Green-Masking and K-Means Clustering in order to select the appropriate dominant colors. The program is limited in its ability to find the dominant colors of mostly green foliage, as well as isolating plants from unrelated objects in images.`
+          },
+          {
+            type: "img",
+            src: "/projects/image2.jpg",
+            alt: "code for green masking images using python",
+          },
+          {
+            type: "caption",
+            text: "Image 2. Python script for Green Masking images",
+          },
+          {
+            type: "img",
+            src: "/projects/image3.jpg",
+            alt: "code for k-means-clustering method of image pixels using python",
+          },
+           {
+            type: "caption",
+            text: "Image 3. Python script for K-Means Clustering method of pixel sorting",
+          },
+          {
+            type: "img",
+            src: "/projects/image4.jpg",
+            alt: "plant with pink flowers",
+          },
+           {
+            type: "caption",
+            text: "Image 4. Astilbe Ostrich Plum",
+          },
+          {
+            type: "img",
+            src: "/projects/image5.jpg",
+            alt: "pink color scheme created by selecting dominant colors from image of pink flowers",
+          },
+           {
+            type: "caption",
+            text: "Image 5. Astilbe flower color scheme",
+          },
+          {
+            type: "img",
+            src: "/projects/image6.jpg",
+            alt: "plant with orange flowers",
+          },
+           {
+            type: "caption",
+            text: "Image 6. Calibrachoa MiniFamous Neo Lava+Red Eye",
+          },
+          {
+            type: "img",
+            src: "/projects/image7.jpg",
+            alt: "orange color scheme created by selecting dominant colors from image of orange flowers",
+          },
+           {
+            type: "caption",
+            text: "Image 7. Calibrachoa flower color scheme",
+          },
+          {
+            type: "p",
+            text: `I wrote the final application in python - with the primary goal to create a window on my screen with a single “generate” button that would create randomized arrangements of images based on selected criteria and a few hard coded color theory principles. The logic follow: a random image is “picked” as the base image, then random images selected and the dominant colors are compared to the base image until an acceptable color combination is found. If a color combination is not found, a new random photo is selected. If an acceptable color combination is found, then the photo is “picked”, and it moves onto selecting another photo or, if all photos have been selected, the arrangement is displayed. In the process I also had to create an additional .csv file denoting a lookup table of the dominant colors converted into hex values to eliminate the need to reprocess each image.`
+          },
+          {
+            type: "p",
+            text: `I began incorporating metrics like sun and water requirements as additional criteria for selecting an arrangement - filtering out any images that do not meet the criteria before the color selection has begun. This functionality is far from integrated due to the amount of time it would take for me to enrich my original list of plant names with this data. Recently though, AI Agent capabilities have become accessible, and that has sped up the process considerably. Still, data requires expert validation, which would take a considerable amount of time. I don’t intend to continue working on this project in the foreseeable future unless I find a profitable reason to, but I have become very familiar with the concept of vibe-coding, which I have been able to incorporate into other projects, such as building this website.`
+          },
+          {
+            type: "img",
+            src: "/projects/image8.jpg",
+            alt: "Final MVP of Autoflora app",
+          },
+          {
+            type: "caption",
+            text: "Image 8. Final MVP of AutoFlora",
+          },
+        ],
+      },
+    ],
+  },
 //..............................................................GrowGrid
 
   {
@@ -400,259 +893,6 @@ export const projects = [
   },
 
 
-//.............................................................SeveredFloor
-
-  {
-    id: "Severed Floor FloorPlan",
-    title: "Severed FloorPlan",
-    blurb:
-      "Autocad proficiency demonstrated by recreating non-euclidian floorplan",
-    cover: "/projects/wellnesscenter.jpg",
-    coverPosition: "center",
-    gallery: [
-      "/projects/MDR-Desks.jpg",
-      "/projects/wellnesscenter.jpg",
-      "/projects/perpetuitywing.jpg",
-    ],
-    overviewImage: "/projects/MDR-Desks.jpg",
-    overviewText: ` Severed Floor is a scale replica of the office set from the Apple TV+ show Severance. The show’s set designers consistently 
-    violated one or more of the five euclidean postulates of geometry when creating the layout of the severed floor in 
-    order to foster tones of unease, and validate feelings of anxiety and paranoia in the show characters. With this 
-    project, I am seeking to demonstrate my proficiency in AutoCAD, showcasing my technical ability with the software 
-    as well as professional grade design and problem-solving skills - to take even the most paradoxical layouts and make them clear.`,
-
-    posts: [
-      {
-        id: "Beginning",
-        title: "Rough Draft",
-        date: "2025-09-16",
-        tags: ["Layout design","AutoCAD","CAD"],
-        excerpt: " ",
-        body: [
-          {
-            type: "p",
-            text: `I can already tell the hardest part about this isn't going to be the CAD, but trying to figure out the layout from just photos, reddit posts, and watching the show. On a side note - my soundtrack for the start of this project is Bjorks Post album, which seems fitting.`
-          },
-          {
-            type: "p",
-            text: ` I was originally inspired to do this project by the office layout designs in my Autocad study material - there's one default office layout that comes with Autocad that has a bunch of cubicles labeled with employee names. While doing the exercises from the autocad website with this file, I was picturing a Lumon CAD operator updating the desk layout of the MDR office between season 1 and 2, and decided I could do that myself.`
-          },
-          {
-            type: "img",
-            src: "/projects/MDR-Desks.jpg",
-            alt: "Autocad layout of desks",
-          },
-          {
-            type: "caption",
-            text: "Image 1. Rough Draft of MDR Office",
-          },
-          { type: "title", text: "MDR:" },
-          {
-            type: "p",
-            text: `I'm going to start with the MDR office because I think this should be the easiest and has the most reference material to work with. In this exercise, I learned about block parameters. Basically, I created the general layout of the desks using regular blocks - I edited the default computer block that comes with designstudio to have a keyboard with the characteristic scroller ball rather than a mouse. Then I created a Name Card block with a Name attribute so that I can keep it a uniform block but change the name per desk. I also added a linear stretch parameter to the rectangle around the block so that it can be sized, as well as a move parameter to the text to keep it centered on the rectangle and it is stretched.`
-          },
-          {
-            type: "img",
-            src: "/projects/Block_Linear.jpg",
-            alt: "Applying Linear Stretch parameter in Block Editor",
-          },
-          {
-            type: "caption",
-            text: "Image 2. Applying Linear Stretch parameter in Block Editor",
-          },
-          {
-            type: "img",
-            src: "/projects/Block_Move.jpg",
-            alt: "Apply Move parameter to text and linear stretch.",
-          },
-          {
-            type: "caption",
-            text: "Image 3. Apply Move parameter to text and Linear Stretch",
-          },
-          {
-            type: "img",
-            src: "/projects/wellnesscenter.jpg",
-            alt: "Autocad layout of wellness center",
-          },
-          {
-            type: "caption",
-            text: "Image 4. Rough Draft of Wellness Center",
-          },
-          { type: "title", text: "Wellness Center:" },
-          {
-            type: "p",
-            text: ` I listed out all the departments I can remember off the top of my head and will be sketching them out one by one as a rough draft from memory. `
-          },
-          {
-            type: "p",
-            text: `I had another funny thought of how as the CAD operator, I might have been given the task to remove all the furniture from Ms Casey's wellness office - particularly the tree. I don't think I need to care too much about getting things perfect right now because at the end of the day, one of the things that I am doing as a CAD operator is editing drawings that already exist to be true to life, which will involve scaling and sizing and things - so I think it's better if I get as much out onto the paper as possible, and worry about making things perfect later.`
-          },
-          { type: "img", src: "/projects/departments.jpg", alt: "" },
-          {
-            type: "caption",
-            text: "Image 4. Department Name Blocks",
-          },
-          { type: "img", src: "/projects/perpetuitywing.jpg", alt: "" },
-          {
-            type: "caption",
-            text: "Image 5. Rough Draft of Perpetuity Wing",
-          },
-          { type: "title", text: "Perpetuity" },
-          {
-            type: "p",
-            text: `So, I'm very interested in making all the plant related rooms, there's something very satisfying about doing the landscape layouts - also, again, I'm not really trying to make the rooms to scale right now, and I think that is okay for now because I can always go back and edit in the future - to say again for the millionth time - editing is part of the process.`
-          },
-          {
-            type: "p",
-            text: `I learned something interesting about the Perpetuity set - the building is modeled off of the Hudson River Museum, which is kind of crazy because I used to live in New Paltz and have never been here - or maybe I have and I just don't remember. I used an aerial photo from google maps to loosely copy the layout of this house. It would be super interesting if I took a field trip to this place, recorded some videos, and then literally recreated the inside of this house in layers. I may do that, it seems actually really fun. `
-          },
-          {
-            type: "p",
-            text: `It's becoming super apparent to me that mapping this floor is as grand of an endeavor as saying "I'm going to map the entire world to scale!" but then google maps literally did that - so why should I limit myself in the feasibility of my goals? I Am Woman... or something like that.`
-          },
-          { type: "img", src: "/projects/hudsonrivermuseum.jpg", alt: "" },
-          {
-            type: "caption",
-            text: "Image 6. Hudson River Museum aerial view",
-          },
-        ],
-      },
-    ],
-  },
-
-//...............................................................AutoFlora
-
-  {
-    id: "AutoFlora",
-    title: "AutoFlora",
-    blurb: "Generative curation for living landscapes.",
-    cover: "/projects/image2.jpg",
-    coverPosition: "center top",
-    gallery: [
-      "/projects/image1.jpg",
-      "/projects/image2.jpg",
-      "/projects/image3.jpg",
-      "/projects/image8.jpg",
-    ],
-    overviewImage: "/projects/AutoFlora_AIMockUp.jpg",
-    overviewText: `AutoFlora is an autonomous plant design app that uses a specialized algorithm to generate
-             and curate arrangements for planters or landscapes. It blends horticultural data with design principles 
-             to suggest combinations that are both practical and visually balanced. `,
-
-    posts: [
-      {
-        id: "MVP",
-        title: "MVP",
-        date: "2025-09-01",
-        tags: [
-          "Prototyping",
-          "Python",
-          "Google Cloud Console",
-          "Custom Search Engine",
-          "AI",
-        ],
-        excerpt: " ",
-        body: [
-          {
-            type: "p",
-            text: `I am not a programmer, but I am an Engineer, and with AI I coded a local desktop program in python that assembles aesthetically pleasing arrangements of plants. Because of the accessibility of LLM’s and AI Assistants, generating python scripts for specific functions was the easiest part of this project - the biggest hurdle in this project was data collection. As demonstrated by this prototype, a mobile application with a cleaner user interface and additional features is viable. This is what I did:`
-          },
-          {
-            type: "p",
-            text: `First, I created a substantially large list of ~8,000 unique plant names, saved as a .csv by compiling availability (inventory) lists from multiple wholesale nurseries in Pennsylvania. In this process I also tagged plants with the additional data of which seasons they typically become available for purchase (spring, summer, fall, or a combination of seasons) - I used this as a quick approximation for “planting season”, but this data would require expert validation. `
-          },
-          {
-            type: "img",
-            src: "/projects/image1.jpg",
-            alt: "images downloaded to desktop file using google console",
-          },
-          {
-            type: "caption",
-            text: "Image 1. Images downloaded into desktop file",
-          },
-          {
-            type: "p",
-            text: `Then I used Google Cloud Console and Custom Search Engine (CSE), along with a python script to search and download the first three images from Google Images associated with each plant name, saved the .jpg files in a folder, and labeled them with the plant name and a clarifier “_1, 2, or 3”,  to prevent duplicate file names. CSE is accessed through a Custom Search API key provided by Google Console, allowing me to query the search engine with a plant name and return an image URL - each query was tracked in the console and had an associated cost, as well as a maximum number of paid queries per day. Running the program took approximately 4 sessions (1,000 per day), and about $20 total cost. The result was a substantial, yet incomplete, complement of images due to errors that occurred during the image downloading process - 0% of the queries failed to return a URL, but approximately ¼ of the queries that were billed linked to images that could not be  downloaded. Essentially, any image with a source file ending in .webx was not able to be downloaded, probably by design of the image owner. I decided there were a sufficient number of photos to proceed with an MVP- although further work is needed in this process. `
-          },
-          {
-            type: "p",
-            text: `Next, I used another python script to analyze each image file for its most dominant colors. The script was iterated multiple times in order to focus primarily on the flower colors and other non-green foliage that otherwise muddied the data - I ultimately landed on a method of Green-Masking and K-Means Clustering in order to select the appropriate dominant colors. The program is limited in its ability to find the dominant colors of mostly green foliage, as well as isolating plants from unrelated objects in images.`
-          },
-          {
-            type: "img",
-            src: "/projects/image2.jpg",
-            alt: "code for green masking images using python",
-          },
-          {
-            type: "caption",
-            text: "Image 2. Python script for Green Masking images",
-          },
-          {
-            type: "img",
-            src: "/projects/image3.jpg",
-            alt: "code for k-means-clustering method of image pixels using python",
-          },
-           {
-            type: "caption",
-            text: "Image 3. Python script for K-Means Clustering method of pixel sorting",
-          },
-          {
-            type: "img",
-            src: "/projects/image4.jpg",
-            alt: "plant with pink flowers",
-          },
-           {
-            type: "caption",
-            text: "Image 4. Astilbe Ostrich Plum",
-          },
-          {
-            type: "img",
-            src: "/projects/image5.jpg",
-            alt: "pink color scheme created by selecting dominant colors from image of pink flowers",
-          },
-           {
-            type: "caption",
-            text: "Image 5. Astilbe flower color scheme",
-          },
-          {
-            type: "img",
-            src: "/projects/image6.jpg",
-            alt: "plant with orange flowers",
-          },
-           {
-            type: "caption",
-            text: "Image 6. Calibrachoa MiniFamous Neo Lava+Red Eye",
-          },
-          {
-            type: "img",
-            src: "/projects/image7.jpg",
-            alt: "orange color scheme created by selecting dominant colors from image of orange flowers",
-          },
-           {
-            type: "caption",
-            text: "Image 7. Calibrachoa flower color scheme",
-          },
-          {
-            type: "p",
-            text: `I wrote the final application in python - with the primary goal to create a window on my screen with a single “generate” button that would create randomized arrangements of images based on selected criteria and a few hard coded color theory principles. The logic follow: a random image is “picked” as the base image, then random images selected and the dominant colors are compared to the base image until an acceptable color combination is found. If a color combination is not found, a new random photo is selected. If an acceptable color combination is found, then the photo is “picked”, and it moves onto selecting another photo or, if all photos have been selected, the arrangement is displayed. In the process I also had to create an additional .csv file denoting a lookup table of the dominant colors converted into hex values to eliminate the need to reprocess each image.`
-          },
-          {
-            type: "p",
-            text: `I began incorporating metrics like sun and water requirements as additional criteria for selecting an arrangement - filtering out any images that do not meet the criteria before the color selection has begun. This functionality is far from integrated due to the amount of time it would take for me to enrich my original list of plant names with this data. Recently though, AI Agent capabilities have become accessible, and that has sped up the process considerably. Still, data requires expert validation, which would take a considerable amount of time. I don’t intend to continue working on this project in the foreseeable future unless I find a profitable reason to, but I have become very familiar with the concept of vibe-coding, which I have been able to incorporate into other projects, such as building this website.`
-          },
-          {
-            type: "img",
-            src: "/projects/image8.jpg",
-            alt: "Final MVP of Autoflora app",
-          },
-          {
-            type: "caption",
-            text: "Image 8. Final MVP of AutoFlora",
-          },
-        ],
-      },
-    ],
-  },
 
 //........................................................Website
 
@@ -787,4 +1027,125 @@ export const projects = [
       },
     ],
   },
+
+//.............................................................SeveredFloor
+
+  {
+    id: "Severed Floor FloorPlan",
+    title: "Severed FloorPlan",
+    blurb:
+      "Autocad proficiency demonstrated by recreating non-euclidian floorplan",
+    cover: "/projects/wellnesscenter.jpg",
+    coverPosition: "center",
+    gallery: [
+      "/projects/MDR-Desks.jpg",
+      "/projects/wellnesscenter.jpg",
+      "/projects/perpetuitywing.jpg",
+    ],
+    overviewImage: "/projects/MDR-Desks.jpg",
+    overviewText: ` Severed Floor is a scale replica of the office set from the Apple TV+ show Severance. The show’s set designers consistently 
+    violated one or more of the five euclidean postulates of geometry when creating the layout of the severed floor in 
+    order to foster tones of unease, and validate feelings of anxiety and paranoia in the show characters. With this 
+    project, I am seeking to demonstrate my proficiency in AutoCAD, showcasing my technical ability with the software 
+    as well as professional grade design and problem-solving skills - to take even the most paradoxical layouts and make them clear.`,
+
+    posts: [
+      {
+        id: "Beginning",
+        title: "Rough Draft",
+        date: "2025-09-16",
+        tags: ["Layout design","AutoCAD","CAD"],
+        excerpt: " ",
+        body: [
+          {
+            type: "p",
+            text: `I can already tell the hardest part about this isn't going to be the CAD, but trying to figure out the layout from just photos, reddit posts, and watching the show. On a side note - my soundtrack for the start of this project is Bjorks Post album, which seems fitting.`
+          },
+          {
+            type: "p",
+            text: ` I was originally inspired to do this project by the office layout designs in my Autocad study material - there's one default office layout that comes with Autocad that has a bunch of cubicles labeled with employee names. While doing the exercises from the autocad website with this file, I was picturing a Lumon CAD operator updating the desk layout of the MDR office between season 1 and 2, and decided I could do that myself.`
+          },
+          {
+            type: "img",
+            src: "/projects/MDR-Desks.jpg",
+            alt: "Autocad layout of desks",
+          },
+          {
+            type: "caption",
+            text: "Image 1. Rough Draft of MDR Office",
+          },
+          { type: "title", text: "MDR:" },
+          {
+            type: "p",
+            text: `I'm going to start with the MDR office because I think this should be the easiest and has the most reference material to work with. In this exercise, I learned about block parameters. Basically, I created the general layout of the desks using regular blocks - I edited the default computer block that comes with designstudio to have a keyboard with the characteristic scroller ball rather than a mouse. Then I created a Name Card block with a Name attribute so that I can keep it a uniform block but change the name per desk. I also added a linear stretch parameter to the rectangle around the block so that it can be sized, as well as a move parameter to the text to keep it centered on the rectangle and it is stretched.`
+          },
+          {
+            type: "img",
+            src: "/projects/Block_Linear.jpg",
+            alt: "Applying Linear Stretch parameter in Block Editor",
+          },
+          {
+            type: "caption",
+            text: "Image 2. Applying Linear Stretch parameter in Block Editor",
+          },
+          {
+            type: "img",
+            src: "/projects/Block_Move.jpg",
+            alt: "Apply Move parameter to text and linear stretch.",
+          },
+          {
+            type: "caption",
+            text: "Image 3. Apply Move parameter to text and Linear Stretch",
+          },
+          {
+            type: "img",
+            src: "/projects/wellnesscenter.jpg",
+            alt: "Autocad layout of wellness center",
+          },
+          {
+            type: "caption",
+            text: "Image 4. Rough Draft of Wellness Center",
+          },
+          { type: "title", text: "Wellness Center:" },
+          {
+            type: "p",
+            text: ` I listed out all the departments I can remember off the top of my head and will be sketching them out one by one as a rough draft from memory. `
+          },
+          {
+            type: "p",
+            text: `I had another funny thought of how as the CAD operator, I might have been given the task to remove all the furniture from Ms Casey's wellness office - particularly the tree. I don't think I need to care too much about getting things perfect right now because at the end of the day, one of the things that I am doing as a CAD operator is editing drawings that already exist to be true to life, which will involve scaling and sizing and things - so I think it's better if I get as much out onto the paper as possible, and worry about making things perfect later.`
+          },
+          { type: "img", src: "/projects/departments.jpg", alt: "" },
+          {
+            type: "caption",
+            text: "Image 4. Department Name Blocks",
+          },
+          { type: "img", src: "/projects/perpetuitywing.jpg", alt: "" },
+          {
+            type: "caption",
+            text: "Image 5. Rough Draft of Perpetuity Wing",
+          },
+          { type: "title", text: "Perpetuity" },
+          {
+            type: "p",
+            text: `So, I'm very interested in making all the plant related rooms, there's something very satisfying about doing the landscape layouts - also, again, I'm not really trying to make the rooms to scale right now, and I think that is okay for now because I can always go back and edit in the future - to say again for the millionth time - editing is part of the process.`
+          },
+          {
+            type: "p",
+            text: `I learned something interesting about the Perpetuity set - the building is modeled off of the Hudson River Museum, which is kind of crazy because I used to live in New Paltz and have never been here - or maybe I have and I just don't remember. I used an aerial photo from google maps to loosely copy the layout of this house. It would be super interesting if I took a field trip to this place, recorded some videos, and then literally recreated the inside of this house in layers. I may do that, it seems actually really fun. `
+          },
+          {
+            type: "p",
+            text: `It's becoming super apparent to me that mapping this floor is as grand of an endeavor as saying "I'm going to map the entire world to scale!" but then google maps literally did that - so why should I limit myself in the feasibility of my goals? I Am Woman... or something like that.`
+          },
+          { type: "img", src: "/projects/hudsonrivermuseum.jpg", alt: "" },
+          {
+            type: "caption",
+            text: "Image 6. Hudson River Museum aerial view",
+          },
+        ],
+      },
+    ],
+  },
+
 ];

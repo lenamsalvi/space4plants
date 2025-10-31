@@ -6,7 +6,8 @@ type Block =
   | { type: "title"; text: string }
   | { type: "ul"; items: string[] }
   | { type: "img"; src: string; alt?: string }
-  | { type: "caption"; text: string };
+  | { type: "caption"; text: string }
+  | { type: "audio"; src: string; caption?: string };
 
 export default function PostContent({ blocks }: { blocks: Block[] }) {
   return (
@@ -100,6 +101,29 @@ export default function PostContent({ blocks }: { blocks: Block[] }) {
             >
               {b.text}
             </p>
+          );
+        }
+        if (b.type === "audio") {
+          return (
+            <div key={i} style={{ margin: "1.5rem auto", maxWidth: "600px" }}>
+              <audio
+                controls
+                style={{ width: "100%", borderRadius: 8 }}
+              >
+                <source src={b.src} type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>
+              {b.caption && (
+                <p style={{
+                  textAlign: "center",
+                  fontStyle: "italic",
+                  color: "#666",
+                  margin: "0.5rem 0"
+                }}>
+                  {b.caption}
+                </p>
+              )}
+            </div>
           );
         }
 
