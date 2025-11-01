@@ -28,7 +28,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [view, setView] = React.useState<View>("home");
+  const [view, setView] = React.useState<View>("projects");
   const [pendingProjectId, setPendingProjectId] = React.useState<string | null>(
     null
   );

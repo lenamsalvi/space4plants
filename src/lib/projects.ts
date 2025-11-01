@@ -49,12 +49,15 @@ export const projects = [
     title: "I'm Wearing a Wire",
     blurb:
       "Blutooth Enabled Audio Journaling Device",
-    cover: "/projects/wireprototype1.jpg",
+    cover: "/projects/wireprotofront.jpg",
     coverPosition: "center",
-    Gallery: [
+    gallery: [
+      "/projects/wireschematic.jpg",
+      "/projects/wireprotofront.jpg",
+      "/projects/wireprotoback.jpg",
       "/projects/wireprototype1.jpg",
     ],
-    overviewImage: "/projects/wireprototype1.jpg",
+    overviewImage: "/projects/wireprotofront.jpg",
     overviewText: `A self-reflection audio recording device built on ESP32. Records voice memos to SD card and plays them back via Bluetooth headphones. Explores Bluetooth audio protocols (A2DP and HFP) in depth.`,
     posts: [
       {
@@ -103,6 +106,7 @@ export const projects = [
             text: "Current Task: Diagnosing I2S audio quality issues (choppy playback, speed inconsistency)",
           },
           { type: "title", text: "Hardware Components:" },
+          { type: "img", src: "/projects/wireprotoback.jpg", alt: "prototype" },
            {
             type: "noindent",
             text: "Core Components:",
@@ -361,6 +365,11 @@ export const projects = [
             ]
           },
           { type: "title", text: "Technical Implementation Details:" },
+          {
+            type: "noindent",
+            text: "Wiring Schematic",
+          },
+          { type: "img", src: "/projects/wireschematic.jpg", alt: "Wiring Schematic" },
           {
             type: "noindent",
             text: "Audio Recording Pipeline",
