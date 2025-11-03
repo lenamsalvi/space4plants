@@ -732,7 +732,7 @@ export const projects = [
   {
     id: "hydro-chamber",
     title: "GrowGrid",
-    blurb: "Interoperable grow system, built to adapt.",
+    blurb: "Modular Grow System",
     cover: "/projects/GrowGrid_Render2.jpg",
     coverPosition: "center bottom",
     gallery: [
