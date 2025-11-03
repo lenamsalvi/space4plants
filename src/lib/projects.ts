@@ -565,8 +565,8 @@ export const projects = [
     coverPosition: "center",
     gallery: [
       "/projects/hardwaretesting.jpg",
-      "/projects/lidarcal.jpg",
-      "/projects/dockingcam.jpg",
+      "/projects/lidarcal.JPG",
+      "/projects/dockingcam.JPG",
       "/projects/moverkit.jpg",
       "/projects/skid.jpg",
       "/projects/pallet1_1.jpg",
@@ -615,18 +615,18 @@ export const projects = [
             text: "Image 4. Ready for Validation Testing",
           },
           { type: "title", text: "LiDAR Calibration" },
-          { type: "img", src: "/projects/lidarcal.jpg", alt: "Example image" },
+          { type: "img", src: "/projects/lidarcal.JPG", alt: "Example image" },
           {
             type: "caption",
             text: "Image 5. LiDAR Calibration",
           },
           { type: "title", text: "Docking" },
-          { type: "img", src: "/projects/dockingcam.jpg", alt: "Example image" },
+          { type: "img", src: "/projects/dockingcam.JPG", alt: "Example image" },
           {
             type: "caption",
             text: "Image 6. Docking Testing - Camera View",
           },
-          { type: "img", src: "/projects/dockingjig.jpg", alt: "Example image" },
+          { type: "img", src: "/projects/dockingjig.JPG", alt: "Example image" },
           {
             type: "caption",
             text: "Image 7. Docking Testing - Alignment Jig",
@@ -637,7 +637,7 @@ export const projects = [
             type: "caption",
             text: "Image 8. Remote Access and Engaging Lift Mechanism",
           },
-          { type: "img", src: "/projects/palletizing.jpg", alt: "Example image" },
+          { type: "img", src: "/projects/palletizing.JPG", alt: "Example image" },
           {
             type: "caption",
             text: "Image 9. Lifting with Gantry and Palletizing",
