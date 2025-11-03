@@ -1,4 +1,6 @@
 export const projects = [
+ //...................................................igrewthis
+
   {
     id: "Plants",
     title: "I Grew This",
@@ -43,7 +45,7 @@ export const projects = [
     ],
   },
 
-//...................................................imwearingawire
+  //...................................................imwearingawire
   {
     id: "imwearingawire",
     title: "I'm Wearing a Wire",
@@ -71,6 +73,8 @@ export const projects = [
           "Hardware Development",
           "Embedded Software",
           "Audio Protocol (A2DP & HFP)",
+          "git",
+          "C Programming"
         ],
         body: [
           { type: "title", text: "Project Goals:" },
@@ -443,6 +447,11 @@ export const projects = [
           "Google Cloud Console",
           "Custom Search Engine",
           "AI",
+          "Machine Vision",
+          "Numpy",
+          "Pandas",
+          "Requests",
+          "git",
         ],
         excerpt: " ",
         body: [
@@ -546,6 +555,178 @@ export const projects = [
       },
     ],
   },
+  //...................................................ironox
+  {
+    id: "IronOx",
+    title: "Mover",
+    blurb:
+      "Mech Engineer @ Iron Ox",
+    cover: "/projects/pretestmover.jpg",
+    coverPosition: "center",
+    gallery: [
+      "/projects/hardwaretesting.jpg",
+      "/projects/lidarcal.jpg",
+      "/projects/dockingcam.jpg",
+      "/projects/moverkit.jpg",
+      "/projects/skid.jpg",
+      "/projects/pallet1_1.jpg",
+      "/projects/palletjack1.jpg",
+      "/projects/palletjack2.jpg",
+      "/projects/linkagewelding.jpg",
+      "/projects/parts.jpg",
+      "/projects/welding.jpg",
+      "/projects/drawingnotes.jpg",
+      "/projects/wings2.jpg",
+      "/projects/postbuild.jpg",
+    ],
+    overviewText: `Retrospect of my time on the Mover Team at Iron Ox - a robotics company focused on developing automation for CEA farms.`,
+    posts: [
+      {
+        id: "Mover",
+        title: "Mover",
+        date: "2021-07-01",
+        tags: [
+          "Robotics",
+          "Autonomously Guided Vehicle (AGV)",
+          "liDAR",
+          "Machine Vision",
+          "Hardware Development"
+        ],
+        body: [
+          { type: "title", text: "Build" },
+          { type: "img", src: "/projects/mechsubassy.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 1. Mechanical Subassemblies (Lift)",
+          },
+          { type: "img", src: "/projects/hardwaretesting.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 2. Hardware Integration",
+          },
+          { type: "img", src: "/projects/installethernet.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 3. Installing Ethernet Cables",
+          },
+          { type: "img", src: "/projects/pretestmover.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 4. Ready for Validation Testing",
+          },
+          { type: "title", text: "LiDAR Calibration" },
+          { type: "img", src: "/projects/lidarcal.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 5. LiDAR Calibration",
+          },
+          { type: "title", text: "Docking" },
+          { type: "img", src: "/projects/dockingcam.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 6. Docking Testing - Camera View",
+          },
+          { type: "img", src: "/projects/dockingjig.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 7. Docking Testing - Alignment Jig",
+          },
+          { type: "title", text: "Mover Transport" },
+          { type: "img", src: "/projects/moverkit.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 8. Remote Access and Engaging Lift Mechanism",
+          },
+          { type: "img", src: "/projects/palletizing.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 9. Lifting with Gantry and Palletizing",
+          },
+        ],
+      },
+      {
+        id: "Pallet Jack",
+        title: "Pallet Jack",
+        date: "2021-07-01",
+        tags: [
+          "Robotics",
+          "Sheet Metal",
+          "Fabrication",
+          "GD&T",
+          "Weldments",
+          "DC Motor Control",
+          "Hall Sensor",
+          "SolidWorks",
+        ],
+        body: [
+          {
+            type: "p",
+            text: "I started with a skid to hold the robot, the parts were designed in solidworks but a majority of the fabrication was done by me in-house using drill-press or vertical band-saw. ",
+          },
+          { type: "img", src: "/projects/skid.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 1. Build-in-place Lifting Pallet",
+          },
+          { type: "img", src: "/projects/pallet1_1.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 2. Metal-pallet with Belly Pan",
+          },
+          {
+            type: "p",
+            text: "I designed the electric jack in solidworks",
+          },
+          { type: "img", src: "/projects/palletjack1.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 3. Electric Jack - lowered",
+          },
+          { type: "img", src: "/projects/palletjack2.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 4. Electric Jack - Lifted ",
+          },
+           {
+            type: "p",
+            text: "We had the parts fabricated by a sheet/metal welding shop",
+          },
+          { type: "img", src: "/projects/linkagewelding.jpg", alt: "Example image" },
+          { type: "img", src: "/projects/parts.jpg", alt: "Example image" },
+          { type: "img", src: "/projects/welding.jpg", alt: "Example image" },
+          { type: "img", src: "/projects/drawingnotes.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 5-8. Fabrication Drawings",
+          },
+          {
+            type: "p",
+            text: "The parts arrived, some welding still needed to be done in-house - we set-up a welding table and had a new outlet installed. ",
+          },
+          { type: "img", src: "/projects/prebuild.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 9. Pre-Build Components",
+          },
+          { type: "img", src: "/projects/wings1.jpg", alt: "Example image" },
+          { type: "img", src: "/projects/wings2.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 10-11. Wing Welding",
+          },
+          { type: "img", src: "/projects/postbuild.jpg", alt: "Example image" },
+          {
+            type: "caption",
+            text: "Image 12. Prototype Completed",
+          },
+        ],
+      },
+    ],
+  },
+
+
+
+
 //..............................................................GrowGrid
 
   {
