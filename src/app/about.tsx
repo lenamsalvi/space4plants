@@ -33,7 +33,7 @@ export default function AboutPage() {
               </h2>
               <p className="text-lg mb-10" style={{ color: "#334155" }}>
                 I am a CAD expert, and an agentic programmer. I have a bachelors in Mechanical Engineering. 
-                I don't believe in aliens or that AI could ever be sentient, but I do believe in luminiferous aether. 
+                I don&apos;t believe in aliens or that AI could ever be sentient, but I do believe in luminiferous aether.
                 I am currently working on a bag charm with an embedded audio device to record journals about life. 
               </p>
               <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
