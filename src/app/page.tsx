@@ -24,7 +24,7 @@ function HomeSection() {
   const { setView, setPendingProjectId, setPendingPostId } = useView();
 
   const latest = React.useMemo(() => {
-    let best: { projectId: string; projectTitle: string; postId: string; postTitle: string; date: string; body: unknown } | null = null;
+    let best: { projectId: string; projectTitle: string; postId: string; postTitle: string; date: string; body: Parameters<typeof PostContent>[0]["blocks"] | undefined } | null = null;
     for (const proj of projects) {
       for (const post of proj.posts) {
         if (!best || new Date(post.date) > new Date(best.date)) {
@@ -58,10 +58,7 @@ function HomeSection() {
         </p>
 
         <div style={{ color: "#334155" }}>
-          {latest.body && (
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            <PostContent blocks={latest.body as any} />
-          )}
+          {latest.body && <PostContent blocks={latest.body} />}
         </div>
 
         <div style={{ marginTop: "3rem", borderTop: "1px solid #e2e8f0", paddingTop: "1.5rem" }}>
