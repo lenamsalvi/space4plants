@@ -34,7 +34,8 @@ function HomeSection() {
             postId: post.id,
             postTitle: post.title,
             date: post.date,
-            body: post.body,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            body: post.body as any,
           };
         }
       }

@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import ProjectsBoard, { Project, type Post } from "@/components/ProjectsBoard";
+import ProjectsBoard, { Project } from "@/components/ProjectsBoard";
 import { projects } from "@/lib/projects";
 import { useView } from "@/app/layout";
 
@@ -66,16 +66,9 @@ export default function Projects() {
     return projects as Project[];
   }, [activeProject, activeTags]);
 
-  const hasFilters = activeTags.length > 0 || !!activeProject;
-
   const onPhotoClick = (projectId: string) => {
     setActiveTags([]);
     setActiveProject((id) => (id === projectId ? null : projectId));
-  };
-
-  const clearFilters = () => {
-    setActiveTags([]);
-    setActiveProject(null);
   };
 
   return (
