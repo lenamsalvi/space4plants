@@ -10,13 +10,20 @@ export default function AboutPage() {
               Helena Salvi
             </h2>
 
-            {/* Image on the left desktop, middle on mobile*/}
-            <div className="w-full bg-slate-100 rounded-lg overflow-hidden order-2 md:order-1">
-              <img
-                src="/projects/ProfilePhoto.jpg"
-                alt="Your Name"
-                className="w-full h-auto"
-              />
+            {/* Photo collage on the left desktop, middle on mobile */}
+            <div className="order-2 md:order-1" style={{ position: "relative", height: "500px", width: "320px", marginLeft: "auto" }}>
+              {/* MossHunting — on top (z:3), covers upper-left corner of ironhell */}
+              <div style={{ position: "absolute", top: "0px", left: "0px", zIndex: 3, background: "white", padding: "8px 8px 28px 8px", boxShadow: "3px 5px 14px rgba(0,0,0,0.22)" }}>
+                <img src="/projects/MossHunting.jpg" alt="" style={{ width: "170px", height: "170px", objectFit: "cover", display: "block" }} />
+              </div>
+              {/* ironhell — middle (z:2), center of composition */}
+              <div style={{ position: "absolute", top: "120px", left: "120px", zIndex: 2, background: "white", padding: "8px 8px 28px 8px", boxShadow: "3px 5px 14px rgba(0,0,0,0.22)" }}>
+                <img src="/projects/ironhell.jpg" alt="" style={{ width: "170px", height: "170px", objectFit: "cover", display: "block" }} />
+              </div>
+              {/* osmagirl — bottom (z:1), ironhell covers its upper-right corner */}
+              <div style={{ position: "absolute", top: "270px", left: "30px", zIndex: 1, background: "white", padding: "8px 8px 28px 8px", boxShadow: "3px 5px 14px rgba(0,0,0,0.22)" }}>
+                <img src="/projects/osmagirl.jpg" alt="" style={{ width: "170px", height: "170px", objectFit: "cover", display: "block" }} />
+              </div>
             </div>
 
             {/* Text on the right */}
@@ -25,47 +32,19 @@ export default function AboutPage() {
                 Helena Salvi
               </h2>
               <p className="text-lg mb-10" style={{ color: "#334155" }}>
-                I&apos;m a mechanical engineer with a deep-rooted passion for plants and AgTech. My career has taken me from hands-on farming to designing AI-driven farm robotics and smart-growing consumer products. Along the way, I&apos;ve learned that the best growing systems are engineered to adapt, perform, and endure. Whether I&apos;m modeling CAD assemblies, building and testing prototypes, or getting my hands dirty in a greenhouse, my instinct is always to identify inefficiencies and create solutions. This site showcases projects by me, focused on making growing simpler, smarter, and more sustainable. When I&apos;m not designing or building, I&apos;m managing rental properties through my company Cypress Space, continuing to learn and expand my skills, or exploring new ways to merge my two passions. I hold AutoCAD certifications (ACU and ACP) and a B.S. in Mechanical Engineering from The George Washington University.
+                I am a CAD expert, and an agentic programmer. I have a bachelors in Mechanical Engineering. 
+                I don't believe in aliens or that AI could ever be sentient, but I do believe in luminiferous aether. 
+                I am currently working on a bag charm with an embedded audio device to record journals about life. 
               </p>
               <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
-                &quot;Plants plants plant I like Plants&quot;
+                Space without an aether is unthinkable///// Albert Einstein
               </blockquote>
             </div>
           </div>
         </article>
 
         {/* Credly Badges Section */}
-        <section className="mt-16 pt-8 border-t border-slate-200">
-          <h3 className="text-2xl font-bold mb-6" style={{ color: "#1e3a8a" }}>Certifications</h3>
-          <div className="flex flex-wrap gap-6">
-            <a
-              href="https://www.credly.com/badges/8d605471-10c4-4b5a-9e5e-1f1fcdf5e314"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-transform hover:scale-105"
-            >
-              <img
-                src="/projects/autodesk-autocad-certified-user.png"
-                alt="AutoCAD Certification Badge"
-                width="150"
-                style={{ display: "block" }}
-              />
-            </a>
-            <a
-              href="https://www.credly.com/badges/72991765-8d73-4f86-91c3-cd2065d2f8f2"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-transform hover:scale-105"
-            >
-              <img
-                src="/projects/autodesk-certified-professional-in-autocad-for-design-and-drafting.png"
-                alt="AutoCAD Certification Badge"
-                width="150"
-                style={{ display: "block" }}
-              />
-            </a>
-          </div>
-        </section>
+        
       </section>
     </main>
   );

@@ -5,6 +5,8 @@ import React from "react";
 import { useView } from "./layout";
 import Projects from "./projects";
 import About from "./about";
+import { projects } from "@/lib/projects";
+import PostContent from "@/components/PostContent";
 
 export default function HomePage() {
   const { view } = useView();
@@ -19,195 +21,89 @@ export default function HomePage() {
 }
 
 function HomeSection() {
-  const { setView, setPendingProjectId } = useView();
+  const { setView, setPendingProjectId, setPendingPostId } = useView();
+
+  const latest = React.useMemo(() => {
+    let best: { projectId: string; projectTitle: string; postId: string; postTitle: string; date: string; body: unknown } | null = null;
+    for (const proj of projects) {
+      for (const post of proj.posts) {
+        if (!best || new Date(post.date) > new Date(best.date)) {
+          best = {
+            projectId: proj.id,
+            projectTitle: proj.title,
+            postId: post.id,
+            postTitle: post.title,
+            date: post.date,
+            body: post.body,
+          };
+        }
+      }
+    }
+    return best;
+  }, []);
+
+  if (!latest) return null;
 
   return (
-    <div>
-      <main className="bg-white font-sans leading-relaxed" style={{ color: "#1e3a8a" }}>
-        {/* Hero */}
-        <section className="py-15 px-6 text-center border-b border-slate-200">
-          <p className="max-w-3xl text-2xl italic mx-auto" style={{ color: "#0066cc" }}>
-            Explore the making of each project. Every detail is here, in my
-            voice, so you can see both the work itself and the skill behind it.
-          </p>
-        </section>
+    <div style={{ backgroundColor: "white", color: "#1e3a8a", fontFamily: "sans-serif", minHeight: "100vh" }}>
+      <div className="max-w-3xl mx-auto px-6 py-12">
+        <p style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#008cf7", marginBottom: "0.5rem" }}>
+          What I&apos;m working on right now
+        </p>
+        <h1 style={{ fontSize: "2rem", fontWeight: "bold", color: "#1e3a8a", marginBottom: "0.25rem" }}>
+          {latest.postTitle}
+        </h1>
+        <p style={{ fontSize: "0.9rem", color: "#64b5f6", marginBottom: "2rem" }}>
+          {latest.projectTitle} — {new Date(latest.date).toLocaleDateString()}
+        </p>
 
-        {/* Magazine-style editorial flow */}
-        <section className="max-w-5xl mx-auto px-6 py-15 space-y-16">
-          <article className="relative">
-            <div className="grid md:grid-cols-2 gap-8 items-start">
-              {/* Title - mobile: top, desktop: hidden here */}
-              <h2 className="text-4xl font-bold order-1 md:hidden col-span-full" style={{ color: "#1e3a8a" }}>
-                Wire
-              </h2>
+        <div style={{ color: "#334155" }}>
+          {latest.body && (
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            <PostContent blocks={latest.body as any} />
+          )}
+        </div>
 
-              {/* Image on the left desktop, middle on mobile*/}
-              <div className="w-full bg-slate-100 rounded-lg overflow-hidden order-2 md:order-1">
-                <img
-                  src="/projects/imwearingawire.jpg" // <--image path
-                  alt="audio journaling device"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Text on the right */}
-              <div className="order-3 md:order-2">
-                <h2 className="text-4xl font-bold mb-6 hidden md:block" style={{ color: "#1e3a8a" }}>
-                  Wire
-                </h2>
-                <p className="text-lg mb-10" style={{ color: "#334155" }}>
-                  A self-reflection audio recording device built on ESP32 with bluetooth connectivity. Record voice memos and save them to an SD card, or stream the ambient sounds of a totally empty room via Bluetooth headphones from 50 feet away. The possibilities are endless when you&apos;re Wearing a Wire.
-                </p>
-                <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
-                  &quot;Don&apos;t implicate yourself, I&apos;m wearing a wire.&quot;
-                </blockquote>
-                <button
-                  onClick={() => {
-                    setPendingProjectId("imwearingawire");
-                    setView("projects");
-                  }}
-                  style={{
-                    marginTop: "1.5rem",
-                    display: "inline-block",
-                    padding: "0.5rem 1.25rem",
-                    background: "#008cf7",
-                    color: "white",
-                    fontSize: "0.875rem",
-                    borderRadius: "0.25rem",
-                    border: "none",
-                    transition: "background 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "#0077d4";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "#008cf7";
-                  }}
-                >
-                  Read More →
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article className="relative">
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              {/* Title - mobile: top, desktop: hidden here */}
-              <h2 className="text-4xl font-bold mb-6 order-1 md:hidden col-span-full" style={{ color: "#1e3a8a" }}>
-                AutoFlora
-              </h2>
-
-              {/* Text on the left */}
-              <div className="order-3 md:order-1">
-                <h2 className="text-4xl font-bold mb-6 hidden md:block" style={{ color: "#1e3a8a" }}>
-                  AutoFlora
-                </h2>
-                <p className="text-lg mb-10" style={{ color: "#334155" }}>
-                  AutoFlora is an autonomous plant design app that uses a
-                  specialized algorithm to generate and curate arrangements for
-                  planters or landscapes. It blends horticultural data with
-                  design principles to suggest combinations that are both
-                  practical and visually balanced.
-                </p>
-                <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
-                  &quot;Generative curation for living landscapes.&quot;
-                </blockquote>
-                <button
-                  onClick={() => {
-                    setPendingProjectId("AutoFlora");
-                    setView("projects");
-                  }}
-                  style={{
-                    marginTop: "1.5rem",
-                    display: "inline-block",
-                    padding: "0.5rem 1.25rem",
-                    background: "#008cf7",
-                    color: "white",
-                    fontSize: "0.875rem",
-                    borderRadius: "0.25rem",
-                    border: "none",
-                    transition: "background 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "#0077d4";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "#008cf7";
-                  }}
-                >
-                  Read More →
-                </button>
-              </div>
-
-              {/* Image on the right */}
-              <div className="order-2 w-full bg-slate-100 rounded-lg overflow-hidden">
-                <img
-                  src="/projects/AutoFlora_AIMockUp.jpg" // <-- your image path here
-                  alt="Plant Arrangement Generator screenshot"
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
-          </article>
-
-          <article className="relative">
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              {/* Title - mobile: top, desktop: hidden here */}
-              <h2 className="text-4xl font-bold mb-6 order-1 md:hidden col-span-full" style={{ color: "#1e3a8a" }}>
-                Website
-              </h2>
-
-              {/* Image on the left */}
-              <div className="w-full bg-slate-100 rounded-lg overflow-hidden order-2 md:order-1">
-                <img
-                  src="/projects/viewports.jpg" // <-- your image path here
-                  alt="Plant Arrangement Generator screenshot"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Text on the right */}
-              <div className="order-3 md:order-2">
-                <h2 className="text-4xl font-bold mb-6 hidden md:block" style={{ color: "#1e3a8a" }}>
-                  Website
-                </h2>
-                <p className="text-lg mb-10" style={{ color: "#334155" }}>
-                  This project exemplifies my exploratory and bold nature - I am
-                  not afraid of what I do not know, and I welcome the challenge.
-                </p>
-                <blockquote className="text-2xl font-light italic border-t border-b py-6" style={{ color: "#008cf7" }}>
-                  &quot;A space for designing... a space for growth... a space for plants.&quot;
-                </blockquote>
-                <button
-                  onClick={() => {
-                    setPendingProjectId("Building My Website");
-                    setView("projects");
-                  }}
-                  style={{
-                    marginTop: "1.5rem",
-                    display: "inline-block",
-                    padding: "0.5rem 1.25rem",
-                    background: "#008cf7",
-                    color: "white",
-                    fontSize: "0.875rem",
-                    borderRadius: "0.25rem",
-                    border: "none",
-                    transition: "background 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "#0077d4";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "#008cf7";
-                  }}
-                >
-                  Read More →
-                </button>
-              </div>
-            </div>
-          </article>
-        </section>
-      </main>
+        <div style={{ marginTop: "3rem", borderTop: "1px solid #e2e8f0", paddingTop: "1.5rem" }}>
+          <button
+            onClick={() => {
+              setPendingProjectId(latest.projectId);
+              setPendingPostId(latest.postId);
+              setView("projects");
+            }}
+            style={{
+              padding: "0.5rem 1.25rem",
+              background: "#008cf7",
+              color: "white",
+              fontSize: "0.875rem",
+              borderRadius: "0.25rem",
+              border: "none",
+              transition: "background 0.2s ease",
+              marginRight: "1rem",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#0077d4"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#008cf7"; }}
+          >
+            Open in Projects →
+          </button>
+          <button
+            onClick={() => setView("projects")}
+            style={{
+              padding: "0.5rem 1.25rem",
+              background: "white",
+              color: "#008cf7",
+              fontSize: "0.875rem",
+              borderRadius: "0.25rem",
+              border: "1px solid #008cf7",
+              transition: "background 0.2s ease",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#e6f4ff"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "white"; }}
+          >
+            View all projects
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

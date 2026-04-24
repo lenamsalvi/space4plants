@@ -62,7 +62,7 @@ export default function ProjectsBoard({
     projectId: string;
   }>(null);
   const [modalTags, setModalTags] = React.useState<string[]>([]);
-  const { pendingProjectId, setPendingProjectId } = useView();
+  const { pendingProjectId, setPendingProjectId, pendingPostId, setPendingPostId } = useView();
 
   const openProjectPosts = (projectId: string) => {
     setModalTags(activeTags);
@@ -85,10 +85,15 @@ export default function ProjectsBoard({
 
   React.useEffect(() => {
     if (pendingProjectId) {
-      openProjectPosts(pendingProjectId);
+      if (pendingPostId) {
+        openPost(pendingProjectId, pendingPostId);
+        setPendingPostId(null);
+      } else {
+        openProjectPosts(pendingProjectId);
+      }
       setPendingProjectId(null);
     }
-  }, [pendingProjectId]);
+  }, [pendingProjectId, pendingPostId]);
 
   return (
     <section className="py-8 px-6 lg:px-40">

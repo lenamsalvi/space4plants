@@ -12,6 +12,8 @@ type ViewContextValue = {
   setView: (v: View) => void;
   pendingProjectId: string | null;
   setPendingProjectId: (id: string | null) => void;
+  pendingPostId: string | null;
+  setPendingPostId: (id: string | null) => void;
 };
 
 export const ViewContext = React.createContext<ViewContextValue | null>(null);
@@ -29,9 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const [view, setView] = React.useState<View>("projects");
-  const [pendingProjectId, setPendingProjectId] = React.useState<string | null>(
-    null
-  );
+  const [pendingProjectId, setPendingProjectId] = React.useState<string | null>(null);
+  const [pendingPostId, setPendingPostId] = React.useState<string | null>(null);
 
   return (
     <html lang="en">
@@ -50,7 +51,7 @@ export default function RootLayout({
         }}
       >
         <ViewContext.Provider
-          value={{ view, setView, pendingProjectId, setPendingProjectId }}
+          value={{ view, setView, pendingProjectId, setPendingProjectId, pendingPostId, setPendingPostId }}
         >
           <Header />
           <main style={{ minHeight: "100vh" }}>{children}</main>
