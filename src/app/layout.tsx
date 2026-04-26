@@ -30,7 +30,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [view, setView] = React.useState<View>("projects");
+  const [view, setView] = React.useState<View>("home");
   const [pendingProjectId, setPendingProjectId] = React.useState<string | null>(null);
   const [pendingPostId, setPendingPostId] = React.useState<string | null>(null);
 
@@ -104,7 +104,7 @@ function Header() {
 
   const NavButton = ({ id, label }: { id: View; label: string }) => (
     <button
-      onClick={() => setView(id)}
+      onClick={() => { setView(id); window.scrollTo(0, 0); }}
       style={{
         margin: "0 0.5rem",
         border: "1px solid #008cf7",

@@ -68,6 +68,7 @@ function HomeSection() {
               setPendingProjectId(latest.projectId);
               setPendingPostId(latest.postId);
               setView("projects");
+              window.scrollTo(0, 0);
             }}
             style={{
               padding: "0.5rem 1.25rem",
@@ -85,7 +86,7 @@ function HomeSection() {
             Open in Projects →
           </button>
           <button
-            onClick={() => setView("projects")}
+            onClick={() => { setView("projects"); window.scrollTo(0, 0); }}
             style={{
               padding: "0.5rem 1.25rem",
               background: "white",

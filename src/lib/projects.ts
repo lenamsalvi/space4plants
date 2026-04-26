@@ -63,6 +63,78 @@ export const projects = [
     overviewText: `A self-reflection audio recording device built on ESP32. Records voice memos to SD card and plays them back via Bluetooth headphones. Explores Bluetooth audio protocols (A2DP and HFP) in depth.`,
     posts: [
       {
+        id: "hardware migration",
+        title: "Hardware Migration",
+        date: "2026-04-26",
+        body: [
+          { type: "title", text: "Updates" },
+          {
+            type: "p",
+            text: "I made a lot of updates in the couple of days after my last post but this project has been stagnant for the past 6 months. To be brief: I successfully paired my headphones to the esp32 using bluetooth classic. I also successfully created audio recordings, saved them sequentially to the sd card, and replayed them over my headphones paired to the device. In the process I also made a UI including a pairing screen, a recording screen, and a past-recording library where you can select from a list of old recordings to replay. While the audio quality is still not ideal, technically you can hear Gabe and I speaking on these recordings, the words are coherent, it's just not particularly pleasant to listen to. I believe that these issues can be fixed with software, and I'm giving myself a lot of grace here because 1) I think it's really amazing what I was able to accomplish in a short amount of time and 2) the MEMS microphone is certainly a choice to be challenged. Included is the first ever recording as a point of comparison: ",
+          },
+          {
+            type: "audio",
+            src: "/projects/TEST_REC.WAV",
+            caption: "First Test Recording"
+          },
+          {
+            type: "p",
+            text: "Now you will hear me trying to get the recordings to save without overwriting eachother - and then showing off my progress:",
+          },
+          {
+            type: "audio",
+            src: "/projects/MEMO_001.WAV",
+            caption: "MEMO_001"
+          },
+          {
+            type: "audio",
+            src: "/projects/MEMO_002.WAV",
+            caption: "MEMO_002"
+          },
+          {
+            type: "audio",
+            src: "/projects/MEMO_003.WAV",
+            caption: "MEMO_003"
+          },
+          {
+            type: "audio",
+            src: "/projects/MEMO_004.WAV",
+            caption: "MEMO_004"
+          },
+          {
+            type: "audio",
+            src: "/projects/MEMO_005.WAV",
+            caption: "MEMO_005"
+          },
+          {
+            type: "p",
+            text: "I am kicking myself a bit for not getting photos or video of the UI interface, because I think holding the device in my hand and clicking through the screens was very exciting. And the reason I cannot do it now is probably the same reason why this project has gone stagnant for so long, even though I think about it everyday. ",
+          },
+          {
+            type: "p",
+            text: "After doing these recordings, I desparately wanted to sever the proverbial umbilical cord connecting it to my computer - for the ESP will need to power itself independently - ie, I need a battery. So I began sourcing components - and at some point I realized I was try too hard to make the inland esp32 dev board work for this task - and rather than apply bandaid after bandaid to a board I chose Only because I had it on my desk already, I could just choose a board that better suited my needs. Now - running in tadem with the battery integration is designing a case to hold all these components together, and all this became one big storm that resulted in me completely disassembling my prototype to a state that would require a significant amount of time rewiring. In the end, I have to push through to the other side if I ever hope to be reunited with my UI.",
+          },
+          {
+            type: "p",
+            text: "The board I chose is the ESP32-S3 Feather because it has an onboard charging circuit and battery port. It does Not have Bluetooth Classic, but it does have Bluetooth Low Energy (BLE). This requires me (via ClaudeCode) to completely rewrite the bluetooth protocol. Am I scared? No. Is Claude scared? For some reason yes - despite consistently expressing that it cannot feel emotions.",
+          },
+          {
+            type: "p",
+            text: "Biggest gripe with AI btw - sometimes Claude is my biggest hater.",
+          },
+          {
+            type: "p",
+            text: "",
+          },
+          
+          { type: "img", src: "/projects/featherboard.jpg", alt: "esp32-s3-feather" },
+          {
+            type: "caption",
+            text: "Adafruit ESP32-S3 Feather with STEMMA QT / Qwiic - 8MB Flash No PSRAM",
+          },
+        ],
+      },
+      {
         id: "readme",
         title: "README.md",
         date: "2025-10-30",
